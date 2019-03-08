@@ -130,3 +130,15 @@ c=set()
 print("set()的类型是",type(c))
 myDict=dict([('one',"value1"),("two","value2")])
 print(myDict)
+a=()
+print(a)
+print(type(a))
+
+#数据类型转换
+x='3.5'
+x=float(x)
+print('字符1的调用int转换类型:',type(x))
+x=int('35',16)#第一个参数是输入的整数 第二个参数是第一个参数的进制 即(12,8)12是8进制 返回值是10进制
+print('x=',x)
+x=set('abc')
+print('x的类型:',type(x))
