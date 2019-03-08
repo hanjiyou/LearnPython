@@ -2,7 +2,7 @@
 # @Author: Marte
 # @Date:   2019-03-08 11:32:44
 # @Last Modified by:   Marte
-# @Last Modified time: 2019-03-08 17:35:18
+# @Last Modified time: 2019-03-08 19:54:26
 
 print("hello,world222");#注释1
 
@@ -108,4 +108,25 @@ print(a-b)
 print(a|b)
 print(a&b)
 print(a^b)
-a=set()
+
+#字典
+myDict={}
+myDict['one']=1
+myDict[2]="two"
+myDict[('1','2')]=('11234',"112")#元组作为key和value
+myDict["set集合"]={"set1","set2","set2"}#set集合作为value
+myDict["Dict字典"]={"name":"汉就业","age":12}#字典作为字典的value
+print("myDict=",myDict)
+print("myDict.keys=",myDict.keys())
+print("myDict.values=",myDict.values())
+print(type(myDict[('1','2')]))
+print(type(myDict["set集合"]))
+print(type(myDict["Dict字典"]))
+a=()
+print("()的类型是",type(a))
+b={}
+print("{}的类型是",type(b))
+c=set()
+print("set()的类型是",type(c))
+myDict=dict([('one',"value1"),("two","value2")])
+print(myDict)
