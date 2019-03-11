@@ -1,3 +1,4 @@
+import requests
 #Number类型的常用函数
 myInt1=abs(-10)
 print('abs(-10)=',myInt1)
@@ -56,7 +57,7 @@ intab = "aeiou"
 outtab = "12345"
 myStr4=''
 trantab = myStr4.maketrans(intab, outtab)   # 制作翻译表
- 
+
 myStr2 = "1this is string example....wow!!!"
 print (myStr2.translate(trantab))#开始转换
 
