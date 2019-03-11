@@ -1,4 +1,4 @@
-import requests
+#import requests
 #Number类型的常用函数
 myInt1=abs(-10)
 print('abs(-10)=',myInt1)
@@ -84,3 +84,47 @@ mylist.sort(reverse=True)#sort给列表排序 可以指定倒序 即reverse=True
 print('list.sort',mylist)
 mylist.clear();#情况列表种的元素
 print(mylist)
+
+#元组
+#内置函数:len/max/min/tuple
+print(tuple([1,2,3]))
+myTup=(1,2,3,[4,5])
+#myTup.append([1,2,3]) 不能直接调用append
+print("myTup.append",myTup)
+
+#字典
+myDict={'key1':1,'key2':[1,2,3]}
+myStr=type(str(myDict))
+print(myStr)
+print(str(myDict))
+myDict1=myDict.copy()#浅拷贝:一级目录深拷贝(修改隔离) 二级目录子对象不拷贝，还是引用同一块内存
+myDict1['key1']=2
+myDict1['key2'].remove(1)
+print('修改后myD=',myDict)
+print('修改后myD1=',myDict1)
+myDict={'key1':1,'key2':[1,2,3]}
+myDict1=myDict#浅拷贝 引用对象
+myDict1['key1']=2
+print(myDict)
+print(myDict1)
+#深拷贝 需要引入copy模块
+import copy;
+myDict2=copy.deepcopy(myDict)
+myDict2['key1']=1
+print(myDict)
+print(myDict2)
+
+#set集合
+#add和update都可以添加元素 update可添加多个元素 用','隔开
+myset1=set(('111','222','333'))
+myset1.update(['444','555'])
+print(myset1)
+myset1.remove('111')#移除元素 不存在会报错
+myset1.discard('111')#移除元素 不存在不会报错
+#myset1.clear()
+myset1.pop()#随机删除一个元素
+print(myset1)
+myset1=set(('1',6))
+myset2=set(('2',7))
+myset1=myset1.union(myset2)
+print(myset1)#返回两个集合的并集
