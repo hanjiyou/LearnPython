@@ -130,19 +130,59 @@ def printinfo(arg1,**vartuple):
  print(vartuple,'type=',type(vartuple))
 #printinfo(70,60,50)
 printinfo(2,a=3,b=4)
+#函数参数--*单独出现 *后的参数必须都使用关键字传入
+def add(a,b,*,c,d):
+ return a+b+c+d
+print('add=',add(1,2,c=3,d=4))
+#匿名函数 用lambda创建匿名函数
+sum=lambda arg1,arg2:arg1+arg2
+print('sum=',sum(4,5))
+#变量作用域 局部变量->闭包函数外的函数中->全局作用域->内置作用域
+myint=0#全局变量
+def test():
+  myint=111#myint在这里是局部变量
+  print('内部',myint)
+test()
+print('外部',myint)
+#使用global和nonlocal关键字 分别修饰局部修改全局  闭包内修改闭包外的变量
+myint=0#全局变量
+def test():
+  global myint#myint在这里是全局变量 不能同时赋值 会报错 无效语法
+  myint=111
+  print('内部',myint)
+test()
+print('外部',myint)
+
+def outer():
+  myint=5#myint在这里是局部变量
+  def inner():
+   nonlocal myint
+   myint=555
+   print('222内部',myint)
+  inner()
+  print('222外部',myint)
+outer()
+
+a=10
+def test(b):
+ b=b+1
+ print(b)
+test(a)
+print(a)
+
 
 #数据结构--列表
-#通过pop()把列表当作堆栈使用
+#通过pop()把列表当作栈使用
 mylist=[1,2,3,4]
 mylist2=['6','5']
 mylist.extend(mylist2)
 print(mylist)
-mylist.pop(0)#移除并返回指定元素的下标
+print('pop(0)',mylist.pop(0))#移除并返回指定元素
 print('栈首元素即最后一个元素出栈,',mylist.pop())
 print(mylist)
 print(mylist[0])
 #print(mylist.index('61'))#获取指定元素的下标 若不存在该元素 则报错:not in list
-#通过导入collections 的deque模块创建列表 把列表当作队列使用
+#通过导入collections的deque模块创建列表 把列表当作队列使用
 from collections import deque
 mylist=deque([1,2,3,4,'5'])
 print(mylist)
@@ -167,5 +207,31 @@ mylist=[2,4,6]
 mylist2=[-1,2,3]
 mylist3=[x*y for x in mylist for y in mylist2]
 print(mylist3)
-
 #嵌套列表解析 即矩阵
+matrix= [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+]
+print([[i,j] for i in range(4)for j in range(5,9)])
+print([row[0] for row in matrix])
+print([[row[i] for row in matrix] for i in range(4)])#转置矩阵
+
+#set集合也支持推导式
+a={x for x in 'abcder' if x not in 'abc'}
+print('a=',a)
+#字典
+tel={'guido': 4127, 'irv': 4127, 'jack': 4098}
+print(tel.keys())
+print(tel.values())
+print(tel.items())#返回类型字符串  内容是键值对元组列表[(,),(,)]
+#同时遍历两个序列 可通过使用zip()组合
+mylist=[1,2,3,4]
+mylist2=['a','b','c','d']
+for a,b in zip(mylist,mylist2):
+ print('a={0},b={1}'.format(b,a))#字符串的format和C#类似
+print('my name is {0},age={1}'.format("韩",66))
+#反向遍历一个序列通过 reversed()函数 sort()正向排序
+for i in reversed(range(1,10,2)):
+ print('i=',i,end=' ')
+print()
