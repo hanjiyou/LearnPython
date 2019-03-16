@@ -24,8 +24,14 @@ string、list、tuple都属于sequence(序列)，都可以被切片，都可以+
   4)截取+步长 [a:b:c]
   5)常用运算符:+拼接、*重复输出、[]索引、[:]截取左闭右开、in判断字符串是否包含给定的字符、not in 与in相反
 (2.3)字符串格式化
-①通过%s和%d '%'s代表字符串 %d代表num,例如:'名字%s的年龄是%d'%(name,age)
-②通过{index}format函数，例如'{0}的年龄是{1}'.format(name,age)
+(1)通过%s和%d '%'s代表字符串 %d代表num,例如:'名字%s的年龄是%d'%(name,age)
+(2)format讲解 {index:lenght/type}
+①通过{}.format函数，例如'{}的年龄是{}'.format(name,age)
+②按顺序将参数替换{},!a' (使用 ascii()), '!s' (使用 str()) 和 '!r' (使用 repr()) 可以用于在格式化某个值之前对其进行转化:
+③'{0:.3}'.format(math.pi)=3.142 0:.3表示四舍五入保留第一个
+参数的3位小数
+④{index:lenght}表示指定下标的参数，至少有lenght这么长 长度不够用空格凑
+⑤:d用于修饰int类型 :f用于修饰浮点数 :s用于修饰str  下标可以忽略
 (3)List列表(可变)
 list内可以存储不同类型的变量,写在[]中，用','隔开
 (4)Tuple元组(不可变)
