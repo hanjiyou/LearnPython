@@ -2,7 +2,7 @@
 # @Author: Marte
 # @Date:   2019-03-18 19:47:42
 # @Last Modified by:   Marte
-# @Last Modified time: 2019-03-18 19:54:24
+# @Last Modified time: 2019-03-19 19:46:02
 print('-------------------------字符串编码的简单介绍模块')
 str1='哦哦哦'
 str2=u'哦6哈哈'#字符串的存储方式都是以Unicode字符来存储的，所以前缀带不带u，其实都一样。
@@ -57,4 +57,3 @@ from timeit import Timer
 print(Timer('t=a;a=b;b=t','a=1;b=2').timeit())#查看执行指定程序所需时间
 print(Timer('a,b = b,a', 'a=1; b=2').timeit())
 
- 
