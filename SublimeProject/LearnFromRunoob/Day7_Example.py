@@ -35,10 +35,38 @@ print(is_number('二'))
 
 print('-------------------------闰年')
 for i in [1900,2000,2004,2010]:
- if i%4==0:
-  if i%100!=0:
-   print('{}是闰年'.format(i))
- elif i%400==0:
-  print('{}是闰年'.format(i))
- else:
-  print('{}不是闰年'.format(i))
+    if i%100==0:
+      if i%400==0:#百整年能被400整除是闰
+        print('{0}是闰年'.format(i))
+      else:
+        print('{0}不是闰年'.format(i))
+    else:#非百整年
+      if i%4==0:
+        print('%d是闰年'%(i))
+      else:
+        print('%d不是'%(i))
+
+print('-------------------------阶乘')
+sourcenum=5
+num=1
+for x in range(1,sourcenum+1):
+    num=num*x
+print('num的阶乘为=',num)
+
+print('-------------------------进制转换')
+dec=15
+print('十进制dec=',dec)
+print('二进制bin()',bin(dec))
+print('8进制oct()',oct(dec))
+print('16进制hex()',hex(dec))
+oct=0o7#python8进制表示方式
+hex=0xaaa#16进制
+bin=0b1#二进制
+
+print('-------------------------递归函数')
+def myfunc(num):
+  result=1
+  if(num>1):
+    result=num*myfunc(num-1)
+  return result
+print(myfunc(5))
